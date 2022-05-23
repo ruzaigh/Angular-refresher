@@ -1,0 +1,27 @@
+<label for="name">Name</label>
+<!-- ngModel "two-wa binding" -->
+<input type="text" id="name" [(ngModel)]="enteredPersonName"/>
+<!-- event binding -->
+<button (click)="onCreatePerson()"> Create </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  local refrence -->
+<!-- #personNameEl is a local refrence that gives us the value of what is inside of it
+<input type="text" id="name" #personNameEl/>
+we pass it down to get the name
+<button (click)="onCreatePerson(personNameEl.value)"> Create </button> -->
