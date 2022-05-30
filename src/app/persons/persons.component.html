@@ -1,7 +1,8 @@
 
+
 <h1>List of persons: </h1>
 <ul>
-  <li *ngFor="let persons of personsList">
+  <li *ngFor="let persons of personsList" (click)="onRemovePerson(persons)">
     {{ persons }}
   </li>
 </ul>

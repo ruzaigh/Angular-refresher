@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonInputComponent } from './persons/person-input.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +14,10 @@ import { PersonInputComponent } from './persons/person-input.component';
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule
   ],
+  // can place your services in here
+  // instead of placing it in the injectable
   providers: [],
   bootstrap: [AppComponent]
 })
