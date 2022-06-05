@@ -8,6 +8,7 @@ import { PersonsService } from "./persons.service";
 })
 export class PersonsComponent implements OnInit, OnDestroy{
   personsList: string[] = [];
+  isFetching: boolean = false;
   private personListSubs: Subscription = new Subscription;
   // one way of doing it
   // how we make a service available component-wode with this property
@@ -24,12 +25,14 @@ export class PersonsComponent implements OnInit, OnDestroy{
     this.personListSubs.unsubscribe();
   }
   ngOnInit(){
-    this.personsList = this.prsService.persons
     // when we want to listen to a new value "subscribe"
     // arrow function will emit when a new value is emitted
     this.personListSubs = this.prsService.personsChanged.subscribe(persons =>{
-      this.personsList = persons
-    })
+      this.personsList = persons;
+      this.isFetching = false;
+    });
+    this.isFetching = true;
+    this.prsService.fetchPersons();
   }
   onRemovePerson(personName: string){
     this.prsService.removePerson(personName);
